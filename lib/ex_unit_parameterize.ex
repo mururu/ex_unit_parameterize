@@ -21,7 +21,7 @@ defmodule ExUnit.Parameterize do
     {_, _, [params]} = Keyword.get(params_clause, :do, nil)
     Enum.map with_index(params), fn({{_, _, args}, i})->
       quote do
-        test unquote(binary_to_atom("#{name}_#{i}")) do
+        test unquote("#{name}_#{i}") do
           unquote(fun).(unquote_splicing(args))
         end
       end
@@ -32,7 +32,7 @@ defmodule ExUnit.Parameterize do
     {_, _, [params]} = Keyword.get(params_clause, :do, nil)
     Enum.map with_index(params), fn({{_, _, args}, i})->
       quote do
-        test unquote(binary_to_atom("#{i}")) do
+        test unquote("#{i}") do
           unquote(fun).(unquote_splicing(args))
         end
       end
