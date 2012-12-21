@@ -1,8 +1,8 @@
-defmodule ExUnitParametarize.Mixfile do
+defmodule ExUnitParameterize.Mixfile do
   use Mix.Project
 
   def project do
-    [ app: :ex_unit_parametarize,
+    [ app: :ex_unit_parameterize,
       version: "0.0.1",
       deps: deps ]
   end
