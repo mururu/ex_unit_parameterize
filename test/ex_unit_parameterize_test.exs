@@ -15,17 +15,17 @@ defmodule ParameteriseTest do
 
   with_params :hello, fn(a, b, answer) -> assert a<>b == answer end do
     [
-      [ "Hello, ",    "world!",           "Hello, world!"          ],
-      [ "Cool",       "",                "Cool"                   ],
-      [ "http://",    "elixir-lang.org", "http://elixir-lang.org" ],
+      { "Hello, ",    "world!",          "Hello, world!"         },
+      { "Cool",       "",                "Cool"                   },
+      { "http://",    "elixir-lang.org", "http://elixir-lang.org" },
     ]
   end
 
   with_params fn(a, b, answer) -> assert a<>b == answer end do
     [
-      [ "Hello, ",    "world!",           "Hello, world!"          ],
-      [ "Cool",       "",                "Cool"                   ],
-      [ "http://",    "elixir-lang.org", "http://elixir-lang.org" ],
+      { "Hello, ",    "world!",          "Hello, world!"         },
+      { "Cool",       "",                "Cool"                   },
+      { "http://",    "elixir-lang.org", "http://elixir-lang.org" },
     ]
   end
 end

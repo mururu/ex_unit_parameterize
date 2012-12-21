@@ -19,7 +19,7 @@ defmodule ExUnit.Parameterize do
 
   defmacro with_params(name, fun, params_clause) do
     {_, _, [params]} = Keyword.get(params_clause, :do, nil)
-    Enum.map with_index(params), fn({args, i})->
+    Enum.map with_index(params), fn({{_, _, args}, i})->
       quote do
         test unquote(binary_to_atom("#{name}_#{i}")) do
           unquote(fun).(unquote_splicing(args))
@@ -30,7 +30,7 @@ defmodule ExUnit.Parameterize do
 
   defmacro with_params(fun, params_clause) do
     {_, _, [params]} = Keyword.get(params_clause, :do, nil)
-    Enum.map with_index(params), fn({args, i})->
+    Enum.map with_index(params), fn({{_, _, args}, i})->
       quote do
         test unquote(binary_to_atom("#{i}")) do
           unquote(fun).(unquote_splicing(args))
